@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Realtime_Fft
+Ml Edge Computing Tinyml
 
-This module implements an advanced Realtime_Fft solution using industry-standard patterns.
+This module implements an advanced Ml Edge Computing Tinyml solution using industry-standard patterns.
 It includes robust data loading, preprocessing, model training, and evaluation pipelines.
 Designed for scalability and reproducibility.
 
@@ -125,9 +125,9 @@ except ImportError:
     logger.error("Scikit-learn is required. pip install scikit-learn")
     sys.exit(1)
 
-class realtime_fftDataPipeline(IDataPipeline):
+class MLEdgeComputingTinyMLDataPipeline(IDataPipeline):
     """
-    Handles data loading and preprocessing for Realtime_Fft.
+    Handles data loading and preprocessing for Ml Edge Computing Tinyml.
     """
     def __init__(self, config: AppConfig):
         self.config = config
@@ -148,7 +148,7 @@ class realtime_fftDataPipeline(IDataPipeline):
             raise DataError(f"Failed to load data: {str(e)}")
 
     def _generate_synthetic_data(self) -> pd.DataFrame:
-        """Generates mock data for Realtime_Fft."""
+        """Generates mock data for Ml Edge Computing Tinyml."""
         n_samples = 1000
         data = {
             'feature_1': np.random.randn(n_samples),
@@ -198,9 +198,9 @@ class realtime_fftDataPipeline(IDataPipeline):
             random_state=self.config.random_state
         )
 
-class realtime_fftModelTrainer(IModelTrainer):
+class MLEdgeComputingTinyMLModelTrainer(IModelTrainer):
     """
-    Manages model training and hyperparameter tuning for Realtime_Fft.
+    Manages model training and hyperparameter tuning for Ml Edge Computing Tinyml.
     """
     def __init__(self, config: AppConfig):
         self.config = config
@@ -284,7 +284,7 @@ class AdvancedVisualizer:
 
 def main():
     """Main execution entry point."""
-    parser = argparse.ArgumentParser(description="Run the Realtime_Fft pipeline.")
+    parser = argparse.ArgumentParser(description="Run the Ml Edge Computing Tinyml pipeline.")
     parser.add_argument("--input", type=str, help="Path to input data")
     parser.add_argument("--output", type=str, help="Path to save trained model")
     parser.add_argument("--epochs", type=int, help="Number of training epochs/iterations")
@@ -297,12 +297,12 @@ def main():
     if args.epochs: config.epochs = args.epochs
 
     setup_environment(config.random_state)
-    logger.info("Starting Realtime_Fft pipeline...")
+    logger.info("Starting Ml Edge Computing Tinyml pipeline...")
     logger.debug(f"Configuration: {config.to_json()}")
 
     try:
         # Pipeline execution
-        pipeline = realtime_fftDataPipeline(config)
+        pipeline = MLEdgeComputingTinyMLDataPipeline(config)
         X_train, X_test, y_train, y_test = pipeline.load_data()
         
         # In a real scenario, we'd use pipeline.preprocess() properly
@@ -312,7 +312,7 @@ def main():
              # Just a sanity check if we need to call preprocess separately
              pass
         
-        trainer = realtime_fftModelTrainer(config)
+        trainer = MLEdgeComputingTinyMLModelTrainer(config)
         model = trainer.train(X_train, y_train)
         
         metrics = trainer.evaluate(model, X_test, y_test)
