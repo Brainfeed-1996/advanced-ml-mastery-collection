@@ -6,7 +6,7 @@ This module implements an advanced Cnn Medical Imaging solution using industry-s
 It includes robust data loading, preprocessing, model training, and evaluation pipelines.
 Designed for scalability and reproducibility.
 
-Author: OpenClaw Expert
+Author: Olivier Robert-Duboille
 Date: 2026-02-06
 """
 

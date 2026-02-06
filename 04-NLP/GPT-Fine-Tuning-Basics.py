@@ -6,7 +6,7 @@ This module implements an advanced Gpt Fine Tuning Basics solution using industr
 It includes robust data loading, preprocessing, model training, and evaluation pipelines.
 Designed for scalability and reproducibility.
 
-Author: OpenClaw Expert
+Author: Olivier Robert-Duboille
 Date: 2026-02-06
 """
 

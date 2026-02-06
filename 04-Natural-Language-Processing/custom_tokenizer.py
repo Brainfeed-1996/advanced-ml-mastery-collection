@@ -6,7 +6,7 @@ This module implements an advanced Custom_Tokenizer solution using industry-stan
 It includes robust data loading, preprocessing, model training, and evaluation pipelines.
 Designed for scalability and reproducibility.
 
-Author: OpenClaw Expert
+Author: Olivier Robert-Duboille
 Date: 2026-02-06
 """
 
