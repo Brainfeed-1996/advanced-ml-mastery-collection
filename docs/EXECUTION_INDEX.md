@@ -24,6 +24,7 @@ Additionally, we export HTML artefacts in `docs/executed/` for a clean, shareabl
 | `08-Anomaly-Detection/Local-Outlier-Factor-Fraud.ipynb` | `docs/executed/Local-Outlier-Factor-Fraud.html` |
 | `08-Anomaly-Detection/KNN-Recommender-Systems.ipynb` | `docs/executed/KNN-Recommender-Systems.html` |
 | `08-Anomaly-Detection/Isolation-Forest-Cyber.ipynb` | `docs/executed/Isolation-Forest-Cyber.html` |
+| `08-Anomaly-Detection/Autoencoders-Network-Security.ipynb` | `docs/executed/Autoencoders-Network-Security.html` |
 
 ## How execution works
 
