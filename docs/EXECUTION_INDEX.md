@@ -22,6 +22,7 @@ Additionally, we export HTML artefacts in `docs/executed/` for a clean, shareabl
 | `08-Anomaly-Detection/Naive-Bayes-Spam-Filter.ipynb` | `docs/executed/Naive-Bayes-Spam-Filter.html` |
 | `08-Anomaly-Detection/Gradient-Boosting-Insurance.ipynb` | `docs/executed/Gradient-Boosting-Insurance.html` |
 | `08-Anomaly-Detection/Local-Outlier-Factor-Fraud.ipynb` | `docs/executed/Local-Outlier-Factor-Fraud.html` |
+| `08-Anomaly-Detection/KNN-Recommender-Systems.ipynb` | `docs/executed/KNN-Recommender-Systems.html` |
 
 ## How execution works
 
