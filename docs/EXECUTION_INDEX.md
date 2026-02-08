@@ -10,6 +10,7 @@ Additionally, we export HTML artefacts in `docs/executed/` for a clean, shareabl
 |---|---|
 | `01-Regression/Linear-Regression-Real-Estate.ipynb` | `docs/executed/Linear-Regression-Real-Estate.html` |
 | `01-Regression/Logistic-Regression-Healthcare.ipynb` | `docs/executed/Logistic-Regression-Healthcare.html` |
+| `01-Regression/Polynomial-Regression-Energy.ipynb` | `docs/executed/Polynomial-Regression-Energy.html` |
 
 ## How execution works
 
