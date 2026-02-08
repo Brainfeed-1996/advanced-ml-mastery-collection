@@ -15,6 +15,7 @@ Additionally, we export HTML artefacts in `docs/executed/` for a clean, shareabl
 | `02-Classification/SVM-Handwritten-Digits.ipynb` | `docs/executed/SVM-Handwritten-Digits.html` |
 | `02-Classification/XGBoost-Customer-Churn.ipynb` | `docs/executed/XGBoost-Customer-Churn.html` |
 | `03-Clustering/K-Means-Segmentation.ipynb` | `docs/executed/K-Means-Segmentation.html` |
+| `03-Clustering-Techniques/PCA-Dimensionality-Reduction.ipynb` | `docs/executed/PCA-Dimensionality-Reduction.html` |
 
 ## How execution works
 
