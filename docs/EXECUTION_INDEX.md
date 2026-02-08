@@ -21,6 +21,7 @@ Additionally, we export HTML artefacts in `docs/executed/` for a clean, shareabl
 | `07-Time-Series/ARIMA-Sales-Forecasting.ipynb` | `docs/executed/ARIMA-Sales-Forecasting.html` |
 | `08-Anomaly-Detection/Naive-Bayes-Spam-Filter.ipynb` | `docs/executed/Naive-Bayes-Spam-Filter.html` |
 | `08-Anomaly-Detection/Gradient-Boosting-Insurance.ipynb` | `docs/executed/Gradient-Boosting-Insurance.html` |
+| `08-Anomaly-Detection/Local-Outlier-Factor-Fraud.ipynb` | `docs/executed/Local-Outlier-Factor-Fraud.html` |
 
 ## How execution works
 
