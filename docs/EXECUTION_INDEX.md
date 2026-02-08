@@ -18,6 +18,7 @@ Additionally, we export HTML artefacts in `docs/executed/` for a clean, shareabl
 | `03-Clustering-Techniques/PCA-Dimensionality-Reduction.ipynb` | `docs/executed/PCA-Dimensionality-Reduction.html` |
 | `07-Time-Series/ARIMA-Sales-Forecasting.ipynb` | `docs/executed/ARIMA-Sales-Forecasting.html` |
 | `08-Anomaly-Detection/Naive-Bayes-Spam-Filter.ipynb` | `docs/executed/Naive-Bayes-Spam-Filter.html` |
+| `08-Anomaly-Detection/Gradient-Boosting-Insurance.ipynb` | `docs/executed/Gradient-Boosting-Insurance.html` |
 
 ## How execution works
 
