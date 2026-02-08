@@ -13,6 +13,7 @@ Additionally, we export HTML artefacts in `docs/executed/` for a clean, shareabl
 | `01-Regression/Polynomial-Regression-Energy.ipynb` | `docs/executed/Polynomial-Regression-Energy.html` |
 | `02-Classification/Random-Forest-Finance.ipynb` | `docs/executed/Random-Forest-Finance.html` |
 | `02-Classification/SVM-Handwritten-Digits.ipynb` | `docs/executed/SVM-Handwritten-Digits.html` |
+| `02-Classification/XGBoost-Customer-Churn.ipynb` | `docs/executed/XGBoost-Customer-Churn.html` |
 
 ## How execution works
 
