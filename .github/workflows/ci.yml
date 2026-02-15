@@ -1,0 +1,42 @@
+name: ML Mastery Collection CI
+
+on:
+  push:
+    paths:
+      - '**.ipynb'
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install nbformat
+    
+    - name: Validate all notebooks
+      run: |
+        count=0
+        for notebook in $(find . -name "*.ipynb" -type f); do
+          python -c "
+import nbformat
+nb = nbformat.read('$notebook', nbformat.NO_CONVERT)
+print(f'✓ {notebook}: {len(nb.cells)} cells')
+          "
+          count=$((count + 1))
+        done
+        echo "Total notebooks: $count"
+    
+    - name: Generate report
+      run: |
+        python tools_notebooks_report.py
