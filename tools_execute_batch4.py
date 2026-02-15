@@ -44,6 +44,7 @@ for rel in targets:
             "--execute", str(nb),
             "--ExecutePreprocessor.kernel_name=python3",
             "--ExecutePreprocessor.timeout=300",
+            "--ExecutePreprocessor.startup_timeout=180",
             "--output", nb.name,
             "--output-dir", str(nb.parent),
         ))

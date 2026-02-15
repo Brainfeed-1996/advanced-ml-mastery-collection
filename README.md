@@ -10,114 +10,13 @@ A comprehensive collection of 50+ Machine Learning and Deep Learning projects, f
 
 ## 📚 Learning Path
 
-```
-Beginner
-├── 01-Regression
-│   ├── Linear-Regression-Real-Estate.ipynb ⭐
-│   ├── Logistic-Regression-Healthcare.ipynb ⭐
-│   └── Polynomial-Regression-Energy.ipynb
-├── 02-Classification
-│   ├── Random-Forest-Finance.ipynb ⭐
-│   ├── SVM-Handwritten-Digits.ipynb ⭐
-│   └── XGBoost-Customer-Churn.ipynb ⭐
-└── 03-Clustering
-    ├── K-Means-Customer-Segmentation.ipynb ⭐
-    ├── DBSCAN-Anomaly-Detection.ipynb
-    └── Hierarchical-Clustering-Genes.ipynb
+The full learning path is maintained here:
 
-Intermediate
-├── 04-Deep-Learning
-│   ├── CNN-Medical-Imaging.ipynb ⭐
-│   ├── LSTM-Stock-Prediction.ipynb ⭐
-│   └── Autoencoders-Denoising.ipynb
-├── 05-NLP
-│   ├── BERT-Sentiment-Analysis.ipynb ⭐
-│   ├── GPT-Fine-Tuning-Basics.ipynb ⭐
-│   └── Named-Entity-Recognition-Spacy.ipynb
-└── 06-Time-Series
-    ├── ARIMA-Sales-Forecasting.ipynb ⭐
-    ├── Prophet-Market-Trends.ipynb
-    └── LSTM-Stock-Prediction.ipynb
+- **docs/LEARNING_PATH.md**
 
-Advanced
-├── 07-Reinforcement-Learning
-│   ├── RL-CartPole-Agent.ipynb ⭐
-│   ├── Deep-Q-Network-Atari.ipynb
-    └── Q-Learning-Maze-Solver.ipynb
-├── 08-Generative-AI
-│   ├── GAN-Synthetic-Data-Gen.ipynb ⭐
-│   ├── GAN-Face-Generation.ipynb
-│   └── Variational-Autoencoders-MNIST.ipynb
-└── 09-MLOps
-    ├── Model-Quantization-TensorRT.ipynb ⭐
-    ├── ML-Model-Monitoring-Prometheus.ipynb
-    └── Federated-Learning-Privacy.ipynb
-```
+## 🚀 Quick Start / Installation
 
-## 🚀 Quick Start
-
-```bash
-# Clone the repository
-git clone https://github.com/Brainfeed-1996/advanced-ml-mastery-collection.git
-cd advanced-ml-mastery-collection
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run a notebook
-jupyter notebook 01-Regression/Linear-Regression-Real-Estate.ipynb
-```
-
-## 📦 Installation
-
-### Create Virtual Environment
-
-```bash
-# Create venv
-python -m venv ml-env
-source ml-env/bin/activate  # Linux/Mac
-# or
-ml-env\Scripts\activate  # Windows
-
-# Install requirements
-pip install -r requirements.txt
-```
-
-### Requirements
-
-```
-# Core ML
-numpy>=1.21
-pandas>=1.3
-scikit-learn>=1.0
-
-# Deep Learning (choose one or both)
-tensorflow>=2.10
-torch>=2.0
-
-# NLP
-transformers>=4.30
-spacy>=3.5
-nltk>=3.8
-
-# Computer Vision
-opencv-python>=4.7
-torchvision>=0.15
-
-# Visualization
-matplotlib>=3.5
-seaborn>=0.11
-plotly>=5.10
-
-# Time Series
-prophet>=1.1
-statsmodels>=0.13
-
-# MLOps
-optuna>=3.0
-mlflow>=2.0
-```
-
+See **docs/INSTALLATION.md**.
 ## 📊 Project Structure
 
 ```
