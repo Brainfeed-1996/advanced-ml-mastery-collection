@@ -1,30 +1,45 @@
 # 05-Computer-Vision
 
+Computer vision workflows (CNN, transfer learning, detection).
 
-Auto-generated: 2026-02-16 09:50:14
+Last refresh: **2026-02-16 10:03:02**
+
+## Prerequisites
+
+- Python 3.10+ recommended
+- Create a venv (see `docs/INSTALLATION.md`)
+- Some notebooks require heavy dependencies (see `docs/OPTIONAL_HEAVY_DEPS.md`)
+
+If a notebook downloads weights/models on first run, expect longer execution times.
 
 ## Contents
 
-- `Autoencoders-Denoising.ipynb` — Notebook project (see notebook for details).
-- `CNN-Medical-Imaging.ipynb` — Convolutional neural network example pipeline.
+- `Autoencoders-Denoising.ipynb` — Autoencoder workflows (denoising / reconstruction).
+- `CNN-Medical-Imaging.ipynb` — CNN training loop + evaluation + confusion matrix.
 - `GAN-Synthetic-Data-Gen.ipynb` — Notebook project (see notebook for details).
 - `Isolation-Forest-Cybersecurity.ipynb` — Notebook project (see notebook for details).
-- `ResNet-Transfer-Learning.ipynb` — Transfer learning with ResNet (weights download).
-- `YOLOv8-Object-Detection.ipynb` — Object detection pipeline with YOLO (weights download).
+- `ResNet-Transfer-Learning.ipynb` — Transfer learning with pretrained ResNet (torchvision weights).
+- `YOLOv8-Object-Detection.ipynb` — Object detection with YOLOv8 (downloads weights on first run).
 
 ## How to run
 
+### Interactive
 ```bash
 jupyter notebook 05-Computer-Vision/<notebook>.ipynb
 ```
 
-Or execute headlessly (exports outputs into the same file):
-
+### Headless (embed outputs into the notebook file)
 ```bash
 python -m jupyter nbconvert --to notebook --execute \
   05-Computer-Vision/<notebook>.ipynb --output <notebook>.ipynb --output-dir 05-Computer-Vision
 ```
 
-## Notes
-- Some notebooks download models/weights on first run (Transformers/YOLO/Diffusers).
-- For repeatable runs, pin dependencies and set seeds.
+## Expected outputs
+- Printed metrics (accuracy/ROC-AUC/MSE/etc.)
+- At least one plot or table for interpretation
+- For heavy notebooks: model download logs (first run) + sample inference outputs
+
+## Troubleshooting
+- **SIGKILL / OOM** (especially diffusion on CPU): reduce steps, reduce image size, or run on a GPU machine.
+- **Corrupted model cache** (Transformers/Diffusers): clear HuggingFace cache (`~/.cache/huggingface`).
+- **Slow runs**: prefer tiny models for validation; then enable full runs intentionally.
