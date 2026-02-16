@@ -2,7 +2,7 @@
 
 Anomaly detection in cyber/fraud/streaming contexts.
 
-Last refresh: **2026-02-16 10:18:30**
+Last refresh: **2026-02-16 16:05:59**
 
 ## Prerequisites
 
@@ -14,6 +14,7 @@ If a notebook downloads weights/models on first run, expect longer execution tim
 
 ## Contents
 
+### Notebooks (.ipynb)
 - `Autoencoders-Network-Security.ipynb` — Autoencoder workflows (denoising / reconstruction).
 - `Gradient-Boosting-Insurance.ipynb` — Notebook project (see notebook for details).
 - `Isolation-Forest-Cyber.ipynb` — Notebook project (see notebook for details).
@@ -22,9 +23,17 @@ If a notebook downloads weights/models on first run, expect longer execution tim
 - `Naive-Bayes-Spam-Filter.ipynb` — Notebook project (see notebook for details).
 - `Streaming-Drift-Anomaly-Calibration.ipynb` — Notebook project (see notebook for details).
 
+### Python Tools (.py)
+- `Autoencoders-Network-Security.py` — Automation tool for notebook management.
+- `Gradient-Boosting-Insurance.py` — Automation tool for notebook management.
+- `Isolation-Forest-Cyber.py` — Automation tool for notebook management.
+- `KNN-Recommender-Systems.py` — Automation tool for notebook management.
+- `Local-Outlier-Factor-Fraud.py` — Automation tool for notebook management.
+- `Naive-Bayes-Spam-Filter.py` — Automation tool for notebook management.
+
 ## How to run
 
-### Interactive
+### Interactive (Jupyter)
 ```bash
 jupyter notebook 08-Anomaly-Detection/<notebook>.ipynb
 ```
@@ -33,6 +42,12 @@ jupyter notebook 08-Anomaly-Detection/<notebook>.ipynb
 ```bash
 python -m jupyter nbconvert --to notebook --execute \
   08-Anomaly-Detection/<notebook>.ipynb --output <notebook>.ipynb --output-dir 08-Anomaly-Detection
+```
+
+### Running Python tools
+```bash
+cd 08-Anomaly-Detection
+python <tool>.py
 ```
 
 ## Expected outputs
@@ -44,3 +59,5 @@ python -m jupyter nbconvert --to notebook --execute \
 - **SIGKILL / OOM** (especially diffusion on CPU): reduce steps, reduce image size, or run on a GPU machine.
 - **Corrupted model cache** (Transformers/Diffusers): clear HuggingFace cache (`~/.cache/huggingface`).
 - **Slow runs**: prefer tiny models for validation; then enable full runs intentionally.
+- **Import errors**: run `tools_fix_concatenated_imports.py` to fix concatenated imports.
+- **JSON errors**: run `tools_fix_ipynb_json.py` to repair corrupted notebooks.

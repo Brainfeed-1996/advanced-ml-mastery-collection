@@ -2,7 +2,7 @@
 
 Computer vision workflows (CNN, transfer learning, detection).
 
-Last refresh: **2026-02-16 10:18:30**
+Last refresh: **2026-02-16 16:05:59**
 
 ## Prerequisites
 
@@ -14,6 +14,7 @@ If a notebook downloads weights/models on first run, expect longer execution tim
 
 ## Contents
 
+### Notebooks (.ipynb)
 - `Autoencoders-Denoising.ipynb` — Autoencoder workflows (denoising / reconstruction).
 - `CNN-Medical-Imaging.ipynb` — CNN training loop + evaluation + confusion matrix.
 - `GAN-Synthetic-Data-Gen.ipynb` — Notebook project (see notebook for details).
@@ -21,9 +22,17 @@ If a notebook downloads weights/models on first run, expect longer execution tim
 - `ResNet-Transfer-Learning.ipynb` — Transfer learning with pretrained ResNet (torchvision weights).
 - `YOLOv8-Object-Detection.ipynb` — Object detection with YOLOv8 (downloads weights on first run).
 
+### Python Tools (.py)
+- `Autoencoders-Denoising.py` — Automation tool for notebook management.
+- `CNN-Medical-Imaging.py` — Automation tool for notebook management.
+- `GAN-Synthetic-Data-Gen.py` — Automation tool for notebook management.
+- `Isolation-Forest-Cybersecurity.py` — Automation tool for notebook management.
+- `ResNet-Transfer-Learning.py` — Automation tool for notebook management.
+- `YOLOv8-Object-Detection.py` — Automation tool for notebook management.
+
 ## How to run
 
-### Interactive
+### Interactive (Jupyter)
 ```bash
 jupyter notebook 05-Computer-Vision/<notebook>.ipynb
 ```
@@ -32,6 +41,12 @@ jupyter notebook 05-Computer-Vision/<notebook>.ipynb
 ```bash
 python -m jupyter nbconvert --to notebook --execute \
   05-Computer-Vision/<notebook>.ipynb --output <notebook>.ipynb --output-dir 05-Computer-Vision
+```
+
+### Running Python tools
+```bash
+cd 05-Computer-Vision
+python <tool>.py
 ```
 
 ## Expected outputs
@@ -43,3 +58,5 @@ python -m jupyter nbconvert --to notebook --execute \
 - **SIGKILL / OOM** (especially diffusion on CPU): reduce steps, reduce image size, or run on a GPU machine.
 - **Corrupted model cache** (Transformers/Diffusers): clear HuggingFace cache (`~/.cache/huggingface`).
 - **Slow runs**: prefer tiny models for validation; then enable full runs intentionally.
+- **Import errors**: run `tools_fix_concatenated_imports.py` to fix concatenated imports.
+- **JSON errors**: run `tools_fix_ipynb_json.py` to repair corrupted notebooks.

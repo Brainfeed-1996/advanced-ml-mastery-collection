@@ -2,7 +2,7 @@
 
 More advanced NLP/DL workflows (training loops, RL intro).
 
-Last refresh: **2026-02-16 10:18:30**
+Last refresh: **2026-02-16 16:05:59**
 
 ## Prerequisites
 
@@ -14,13 +14,21 @@ If a notebook downloads weights/models on first run, expect longer execution tim
 
 ## Contents
 
+### Notebooks (.ipynb)
 - `CNN-Medical-Imaging.ipynb` — CNN training loop + evaluation + confusion matrix.
 - `GPT-Fine-Tuning-Basics.ipynb` — Fine-tuning mechanics via a tiny causal LM + sampling.
 - `RL-CartPole-Agent.ipynb` — Reinforcement learning agent training (gymnasium).
 
+### Python Tools (.py)
+- `advanced_transformer.py` — Automation tool for notebook management.
+- `CNN-Medical-Imaging.py` — Automation tool for notebook management.
+- `custom_tokenizer.py` — Automation tool for notebook management.
+- `GPT-Fine-Tuning-Basics.py` — Automation tool for notebook management.
+- `RL-CartPole-Agent.py` — Automation tool for notebook management.
+
 ## How to run
 
-### Interactive
+### Interactive (Jupyter)
 ```bash
 jupyter notebook 04-Natural-Language-Processing/<notebook>.ipynb
 ```
@@ -29,6 +37,12 @@ jupyter notebook 04-Natural-Language-Processing/<notebook>.ipynb
 ```bash
 python -m jupyter nbconvert --to notebook --execute \
   04-Natural-Language-Processing/<notebook>.ipynb --output <notebook>.ipynb --output-dir 04-Natural-Language-Processing
+```
+
+### Running Python tools
+```bash
+cd 04-Natural-Language-Processing
+python <tool>.py
 ```
 
 ## Expected outputs
@@ -40,3 +54,5 @@ python -m jupyter nbconvert --to notebook --execute \
 - **SIGKILL / OOM** (especially diffusion on CPU): reduce steps, reduce image size, or run on a GPU machine.
 - **Corrupted model cache** (Transformers/Diffusers): clear HuggingFace cache (`~/.cache/huggingface`).
 - **Slow runs**: prefer tiny models for validation; then enable full runs intentionally.
+- **Import errors**: run `tools_fix_concatenated_imports.py` to fix concatenated imports.
+- **JSON errors**: run `tools_fix_ipynb_json.py` to repair corrupted notebooks.

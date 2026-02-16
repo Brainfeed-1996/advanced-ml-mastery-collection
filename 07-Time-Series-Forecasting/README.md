@@ -2,7 +2,7 @@
 
 Production forecasting topics: monitoring, interpretability, quantization.
 
-Last refresh: **2026-02-16 10:18:30**
+Last refresh: **2026-02-16 16:05:59**
 
 ## Prerequisites
 
@@ -14,13 +14,19 @@ If a notebook downloads weights/models on first run, expect longer execution tim
 
 ## Contents
 
+### Notebooks (.ipynb)
 - `Decision-Trees-Interpretability.ipynb` — Notebook project (see notebook for details).
 - `ML-Model-Monitoring-Prometheus.ipynb` — Model monitoring patterns with Prometheus-like metrics.
 - `Model-Quantization-TensorRT.ipynb` — Post-training quantization patterns (TensorRT discussed; CPU fallback in notebook).
 
+### Python Tools (.py)
+- `Decision-Trees-Interpretability.py` — Automation tool for notebook management.
+- `ML-Model-Monitoring-Prometheus.py` — Automation tool for notebook management.
+- `Model-Quantization-TensorRT.py` — Automation tool for notebook management.
+
 ## How to run
 
-### Interactive
+### Interactive (Jupyter)
 ```bash
 jupyter notebook 07-Time-Series-Forecasting/<notebook>.ipynb
 ```
@@ -29,6 +35,12 @@ jupyter notebook 07-Time-Series-Forecasting/<notebook>.ipynb
 ```bash
 python -m jupyter nbconvert --to notebook --execute \
   07-Time-Series-Forecasting/<notebook>.ipynb --output <notebook>.ipynb --output-dir 07-Time-Series-Forecasting
+```
+
+### Running Python tools
+```bash
+cd 07-Time-Series-Forecasting
+python <tool>.py
 ```
 
 ## Expected outputs
@@ -40,3 +52,5 @@ python -m jupyter nbconvert --to notebook --execute \
 - **SIGKILL / OOM** (especially diffusion on CPU): reduce steps, reduce image size, or run on a GPU machine.
 - **Corrupted model cache** (Transformers/Diffusers): clear HuggingFace cache (`~/.cache/huggingface`).
 - **Slow runs**: prefer tiny models for validation; then enable full runs intentionally.
+- **Import errors**: run `tools_fix_concatenated_imports.py` to fix concatenated imports.
+- **JSON errors**: run `tools_fix_ipynb_json.py` to repair corrupted notebooks.

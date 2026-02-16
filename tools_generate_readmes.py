@@ -63,6 +63,21 @@ DESC = {
     "Atari": "Deep Q-Network (DQN) training pattern (resource heavy).",
 }
 
+# Tool file descriptions
+TOOL_DESC = {
+    "tools_execute_batch": "Batch execution of multiple notebooks with timeout and error handling.",
+    "tools_fix_concatenated_imports": "Fix notebooks with concatenated imports (single-line imports).",
+    "tools_fix_ipynb_json": "Repair corrupted JSON structure in notebook files.",
+    "tools_rebuild": "Rebuild notebooks with industrial-grade patterns and outputs.",
+    "tools_generate_readmes": "Auto-generate comprehensive README files for all modules.",
+    "tools_repair": "Repair specific notebooks with targeted fixes.",
+    "tools_rewrite": "Rewrite specific cells in notebooks.",
+    "tools_patch": "Patch notebook cells for compatibility.",
+    "tools_force_outputs": "Force outputs in notebooks with allow_errors.",
+    "tools_notebooks_report": "Generate report on notebook status.",
+    "check_nb": "Check notebook health and structure.",
+}
+
 
 def describe(name: str) -> str:
     for k, v in DESC.items():
@@ -71,8 +86,16 @@ def describe(name: str) -> str:
     return "Notebook project (see notebook for details)."
 
 
+def describe_tool(filename: str) -> str:
+    for k, v in TOOL_DESC.items():
+        if k in filename:
+            return v
+    return "Automation tool for notebook management."
+
+
 def folder_readme(folder: Path) -> str:
     nbs = sorted(folder.glob("*.ipynb"))
+    pys = sorted(folder.glob("*.py"))
 
     intro = FOLDER_INTROS.get(folder.name, "Notebook collection.")
 
@@ -94,14 +117,20 @@ def folder_readme(folder: Path) -> str:
     if not nbs:
         lines.append("(no notebooks found)")
     else:
+        lines.append("### Notebooks (.ipynb)")
         for nb in nbs:
             lines.append(f"- `{nb.name}` — {describe(nb.stem)}")
+
+    if pys:
+        lines += ["", "### Python Tools (.py)"]
+        for py in pys:
+            lines.append(f"- `{py.name}` — {describe_tool(py.stem)}")
 
     lines += [
         "",
         "## How to run",
         "",
-        "### Interactive",
+        "### Interactive (Jupyter)",
         "```bash",
         f"jupyter notebook {folder.name}/<notebook>.ipynb",
         "```",
@@ -110,6 +139,12 @@ def folder_readme(folder: Path) -> str:
         "```bash",
         "python -m jupyter nbconvert --to notebook --execute \\",
         f"  {folder.name}/<notebook>.ipynb --output <notebook>.ipynb --output-dir {folder.name}",
+        "```",
+        "",
+        "### Running Python tools",
+        "```bash",
+        f"cd {folder.name}",
+        "python <tool>.py",
         "```",
         "",
         "## Expected outputs",
@@ -121,6 +156,8 @@ def folder_readme(folder: Path) -> str:
         "- **SIGKILL / OOM** (especially diffusion on CPU): reduce steps, reduce image size, or run on a GPU machine.",
         "- **Corrupted model cache** (Transformers/Diffusers): clear HuggingFace cache (`~/.cache/huggingface`).",
         "- **Slow runs**: prefer tiny models for validation; then enable full runs intentionally.",
+        "- **Import errors**: run `tools_fix_concatenated_imports.py` to fix concatenated imports.",
+        "- **JSON errors**: run `tools_fix_ipynb_json.py` to repair corrupted notebooks.",
     ]
 
     return "\n".join(lines).replace("\r\n", "\n")
