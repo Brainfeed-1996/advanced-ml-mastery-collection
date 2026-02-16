@@ -1,17 +1,31 @@
-# 08 — Anomaly Detection
+# 08-Anomaly-Detection
 
-Industrial-grade anomaly detection notebooks (cyber, fraud, insurance, and streaming drift).
 
-## Notebooks
+Auto-generated: 2026-02-16 01:25:44
 
-- `Isolation-Forest-Cyber.ipynb` — classical unsupervised baseline for cybersecurity-style signals
-- `Local-Outlier-Factor-Fraud.ipynb` — density-based local anomaly scoring for fraud patterns
-- `Gradient-Boosting-Insurance.ipynb` — supervised proxy (rare-event / anomaly-like) modeling with boosting
-- `Autoencoders-Network-Security.ipynb` — reconstruction-error approach for high-dimensional security features
-- `Streaming-Drift-Anomaly-Calibration.ipynb` — streaming calibration + drift-aware monitoring patterns
-- `Naive-Bayes-Spam-Filter.ipynb` — lightweight baseline (text as anomaly-ish classification)
+## Contents
+
+- `Autoencoders-Network-Security.ipynb` — Notebook project (see notebook for details).
+- `Gradient-Boosting-Insurance.ipynb` — Notebook project (see notebook for details).
+- `Isolation-Forest-Cyber.ipynb` — Notebook project (see notebook for details).
+- `KNN-Recommender-Systems.ipynb` — Notebook project (see notebook for details).
+- `Local-Outlier-Factor-Fraud.ipynb` — Notebook project (see notebook for details).
+- `Naive-Bayes-Spam-Filter.ipynb` — Notebook project (see notebook for details).
+- `Streaming-Drift-Anomaly-Calibration.ipynb` — Notebook project (see notebook for details).
+
+## How to run
+
+```bash
+jupyter notebook 08-Anomaly-Detection/<notebook>.ipynb
+```
+
+Or execute headlessly (exports outputs into the same file):
+
+```bash
+python -m jupyter nbconvert --to notebook --execute \
+  08-Anomaly-Detection/<notebook>.ipynb --output <notebook>.ipynb --output-dir 08-Anomaly-Detection
+```
 
 ## Notes
-
-- The repository includes **executed notebooks with outputs** when feasible (CPU-safe). Some cells may be intentionally lightweight to keep runtime reasonable.
-- If you want deterministic runs, consider setting a fixed `random_state` everywhere + pin exact package versions.
+- Some notebooks download models/weights on first run (Transformers/YOLO/Diffusers).
+- For repeatable runs, pin dependencies and set seeds.
