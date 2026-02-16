@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local logs / reports
+*.log
+docs/_last_validate.txt
+docs/_fix_concat_log*.txt
+docs/_last_validate.txt
+docs/_last_validate*.txt
+
+# Large / generated artifacts (do not commit)
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+
+# Generated images (synthetic scenes, outputs)
+synthetic_scene.jpg
+*.png
+*.jpg
+*.jpeg
+
+# HuggingFace / caches
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
