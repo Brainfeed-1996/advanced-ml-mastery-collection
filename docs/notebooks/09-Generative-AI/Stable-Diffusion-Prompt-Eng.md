@@ -1,0 +1,55 @@
+# Stable Diffusion - Prompt Engineering
+
+**Folder:** `09-Generative-AI`
+
+**Last updated:** 2026-02-16 16:29:34
+
+## Purpose
+
+Generate images using Stable Diffusion with prompt engineering
+
+## Key Features
+
+- Stable Diffusion model loading
+- Prompt engineering techniques
+- Image generation pipeline
+- Parameter tuning
+- Quality evaluation
+
+## How to Use
+
+Run the notebook to generate images. Use CPU-safe default or full model.
+
+## Expected Outputs
+
+Generated images, prompt variations, quality metrics
+
+## Difficulty Level
+
+- **Intermediate**
+
+## Prerequisites
+
+- Python 3.10+
+- Virtual environment (see docs/INSTALLATION.md)
+- Required dependencies (see docs/OPTIONAL_HEAVY_DEPS.md)
+
+## Running the Notebook
+
+### Interactive
+```bash
+jupyter notebook 09-Generative-AI/Stable-Diffusion-Prompt-Eng.ipynb
+```
+
+### Headless (with outputs)
+```bash
+python -m jupyter nbconvert --to notebook --execute \
+  09-Generative-AI/Stable-Diffusion-Prompt-Eng.ipynb --output Stable-Diffusion-Prompt-Eng.ipynb --output-dir 09-Generative-AI
+```
+
+## Troubleshooting
+
+- **Missing outputs**: Run the notebook in Jupyter or use nbconvert
+- **Memory issues**: Reduce batch size or use smaller models
+- **Slow execution**: Use CPU-safe defaults or reduce complexity
+- **Dependency errors**: Install required packages from requirements.txt
