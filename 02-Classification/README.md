@@ -1,56 +1,42 @@
-# 02-Classification
+# 02 - Classification
 
-Core classification algorithms + evaluation patterns.
+Ce dossier se concentre sur les tâches de classification, une catégorie fondamentale du machine learning supervisé où l'objectif est de prédire une étiquette de classe discrète. Les exemples fournis illustrent des algorithmes de classification populaires et leurs applications, notamment les Forêts Aléatoires, les Machines à Vecteurs de Support (SVM) et XGBoost.
 
-Last refresh: **2026-02-16 16:05:59**
+**Date de dernière mise à jour :** 2026-02-08 17:42:46
 
-## Prerequisites
+---
 
-- Python 3.10+ recommended
-- Create a venv (see `docs/INSTALLATION.md`)
-- Some notebooks require heavy dependencies (see `docs/OPTIONAL_HEAVY_DEPS.md`)
+## Présentation des Notebooks
 
-If a notebook downloads weights/models on first run, expect longer execution times.
+### 1. `Random-Forest-Finance.ipynb` - Classification avec Forêt Aléatoire (Finance)
 
-## Contents
+Ce notebook utilise un modèle de Forêt Aléatoire pour une tâche de classification dans le domaine financier. Il couvre l'ensemble du processus, de la préparation des données à l'évaluation du modèle, en passant par l'interprétation de l'importance des fonctionnalités.
 
-### Notebooks (.ipynb)
-- `Random-Forest-Finance.ipynb` — Notebook project (see notebook for details).
-- `SVM-Handwritten-Digits.ipynb` — Support Vector Machine classification with tuning + diagnostics.
-- `XGBoost-Customer-Churn.ipynb` — Gradient boosting for churn-style classification (XGBoost if available).
+- **Concepts Clés :**
+    - **Génération de Données Synthétiques :** Création d'un jeu de données réaliste pour simuler le risque de crédit.
+    - **Analyse Exploratoire des Données (EDA) :** Visualisation des distributions et des relations entre les variables pour identifier les prédicteurs potentiels.
+    - **Pipeline de Prétraitement :** Utilisation de `ColumnTransformer` et `OneHotEncoder` pour gérer les variables catégorielles et numériques.
+    - **Optimisation d'Hyperparamètres :** Utilisation de `RandomizedSearchCV` pour trouver les meilleurs hyperparamètres pour le modèle de Forêt Aléatoire.
+    - **Importance des Variables :** Analyse de l'importance des fonctionnalités pour comprendre les facteurs les plus influents dans la prédiction.
 
-### Python Tools (.py)
-- `Random-Forest-Finance.py` — Automation tool for notebook management.
-- `SVM-Handwritten-Digits.py` — Automation tool for notebook management.
-- `XGBoost-Customer-Churn.py` — Automation tool for notebook management.
+### 2. `SVM-Handwritten-Digits.ipynb` - Classification avec SVM (Chiffres Manuscrits)
 
-## How to run
+Ce notebook applique les Machines à Vecteurs de Support (SVM) pour la reconnaissance de chiffres manuscrits à partir du jeu de données `digits` de scikit-learn. Il montre comment les SVM peuvent être utilisés pour des tâches de classification multi-classes et comment optimiser leurs hyperparamètres.
 
-### Interactive (Jupyter)
-```bash
-jupyter notebook 02-Classification/<notebook>.ipynb
-```
+- **Concepts Clés :**
+    - **Chargement de Données :** Utilisation du jeu de données `digits` intégré à scikit-learn.
+    - **Analyse Exploratoire des Données (EDA) :** Visualisation des images de chiffres pour comprendre la nature des données.
+    - **Comparaison de Modèles :** Comparaison des performances d'un modèle SVM avec noyau RBF à des modèles de base comme la régression logistique.
+    - **Optimisation d'Hyperparamètres :** Utilisation de `GridSearchCV` pour trouver les meilleurs paramètres `C` et `gamma` pour le SVM.
+    - **Évaluation du Modèle :** Utilisation de rapports de classification et de matrices de confusion pour évaluer la performance du modèle final.
 
-### Headless (embed outputs into the notebook file)
-```bash
-python -m jupyter nbconvert --to notebook --execute \
-  02-Classification/<notebook>.ipynb --output <notebook>.ipynb --output-dir 02-Classification
-```
+### 3. `XGBoost-Customer-Churn.ipynb` - Classification avec XGBoost (Churn Client)
 
-### Running Python tools
-```bash
-cd 02-Classification
-python <tool>.py
-```
+Ce notebook utilise XGBoost, un algorithme de boosting de gradient, pour prédire le churn (départ) de clients. Il met en évidence la puissance de XGBoost pour obtenir des performances de pointe sur des données tabulaires et compare ses performances à des modèles de base.
 
-## Expected outputs
-- Printed metrics (accuracy/ROC-AUC/MSE/etc.)
-- At least one plot or table for interpretation
-- For heavy notebooks: model download logs (first run) + sample inference outputs
-
-## Troubleshooting
-- **SIGKILL / OOM** (especially diffusion on CPU): reduce steps, reduce image size, or run on a GPU machine.
-- **Corrupted model cache** (Transformers/Diffusers): clear HuggingFace cache (`~/.cache/huggingface`).
-- **Slow runs**: prefer tiny models for validation; then enable full runs intentionally.
-- **Import errors**: run `tools_fix_concatenated_imports.py` to fix concatenated imports.
-- **JSON errors**: run `tools_fix_ipynb_json.py` to repair corrupted notebooks.
+- **Concepts Clés :**
+    - **Génération de Données Synthétiques :** Création d'un jeu de données réaliste simulant le comportement des clients et leur probabilité de churn.
+    - **Pipeline de Prétraitement :** Gestion des variables catégorielles et numériques avec `ColumnTransformer` et `OneHotEncoder`.
+    - **Comparaison de Modèles :** Évaluation des performances de XGBoost par rapport à un modèle de base (régression logistique) et un classificateur `HistGradientBoosting`.
+    - **Optimisation d'Hyperparamètres :** Utilisation de `RandomizedSearchCV` pour trouver les meilleurs hyperparamètres pour le modèle `HistGradientBoosting`.
+    - **Évaluation du Modèle :** Utilisation de l'AUC ROC comme métrique principale pour évaluer et comparer les modèles.

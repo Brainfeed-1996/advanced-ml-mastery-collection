@@ -1,56 +1,40 @@
-# 03-Clustering
+# 03 - Clustering
 
-Unsupervised segmentation & clustering evaluation.
+Ce dossier est dédié à l'apprentissage non supervisé, et plus particulièrement aux techniques de clustering. Le clustering vise à regrouper des données non étiquetées en fonction de leurs similarités. Les notebooks de ce dossier explorent trois algorithmes de clustering populaires : K-Means, le clustering hiérarchique et DBSCAN.
 
-Last refresh: **2026-02-16 16:05:59**
+**Date de dernière mise à jour :** 2026-02-08 17:42:46
 
-## Prerequisites
+---
 
-- Python 3.10+ recommended
-- Create a venv (see `docs/INSTALLATION.md`)
-- Some notebooks require heavy dependencies (see `docs/OPTIONAL_HEAVY_DEPS.md`)
+## Présentation des Notebooks
 
-If a notebook downloads weights/models on first run, expect longer execution times.
+### 1. `K-Means-Segmentation.ipynb` - Segmentation de la Clientèle avec K-Means
 
-## Contents
+Ce notebook est un guide complet sur l'utilisation de l'algorithme K-Means pour la segmentation de la clientèle, une tâche courante en marketing. Il illustre comment identifier des segments de clientèle distincts à partir de leurs comportements d'achat.
 
-### Notebooks (.ipynb)
-- `DBSCAN-Anomaly-Detection.ipynb` — Notebook project (see notebook for details).
-- `Hierarchical-Clustering-Genes.ipynb` — Notebook project (see notebook for details).
-- `K-Means-Segmentation.ipynb` — K-means clustering for segmentation + silhouette-based K selection + profiling.
+- **Concepts Clés :**
+    - **Génération de Données Synthétiques :** Création d'un jeu de données client réaliste avec des segments latents.
+    - **Analyse Exploratoire des Données (EDA) :** Visualisation des distributions et des relations entre les variables.
+    - **Sélection du Nombre de Clusters (K) :** Utilisation de la méthode du coude (Elbow) et du score de silhouette pour déterminer le nombre optimal de clusters.
+    - **Profilage des Clusters :** Analyse des caractéristiques moyennes de chaque cluster pour créer des personas de clientèle.
+    - **Visualisation avec PCA :** Utilisation de l'analyse en composantes principales (PCA) pour visualiser les clusters en 2D.
 
-### Python Tools (.py)
-- `DBSCAN-Anomaly-Detection.py` — Automation tool for notebook management.
-- `Hierarchical-Clustering-Genes.py` — Automation tool for notebook management.
-- `K-Means-Segmentation.py` — Automation tool for notebook management.
+### 2. `Hierarchical-Clustering-Genes.ipynb` - Clustering Hiérarchique de Gènes
 
-## How to run
+Ce notebook montre comment appliquer le clustering hiérarchique pour regrouper des gènes en fonction de leurs profils d'expression. Cette technique est largement utilisée en bio-informatique pour identifier des groupes de gènes ayant des fonctions similaires.
 
-### Interactive (Jupyter)
-```bash
-jupyter notebook 03-Clustering/<notebook>.ipynb
-```
+- **Concepts Clés :**
+    - **Clustering Agglomératif :** Utilisation de l'algorithme de clustering hiérarchique ascendant pour construire un dendrogramme.
+    - **Dendrogramme :** Visualisation de la structure hiérarchique des clusters et aide à la sélection du nombre de clusters.
+    - **Découpage du Dendrogramme :** Utilisation de la fonction `fcluster` pour extraire un nombre spécifique de clusters à partir du dendrogramme.
+    - **Évaluation du Clustering :** Utilisation du score de silhouette pour évaluer la qualité de la partition des clusters.
 
-### Headless (embed outputs into the notebook file)
-```bash
-python -m jupyter nbconvert --to notebook --execute \
-  03-Clustering/<notebook>.ipynb --output <notebook>.ipynb --output-dir 03-Clustering
-```
+### 3. `DBSCAN-Anomaly-Detection.ipynb` - Détection d'Anomalies avec DBSCAN
 
-### Running Python tools
-```bash
-cd 03-Clustering
-python <tool>.py
-```
+Ce notebook utilise DBSCAN (Density-Based Spatial Clustering of Applications with Noise) pour identifier des anomalies dans un jeu de données. Contrairement à K-Means, DBSCAN n'a pas besoin que le nombre de clusters soit spécifié à l'avance et peut découvrir des clusters de formes arbitraires.
 
-## Expected outputs
-- Printed metrics (accuracy/ROC-AUC/MSE/etc.)
-- At least one plot or table for interpretation
-- For heavy notebooks: model download logs (first run) + sample inference outputs
-
-## Troubleshooting
-- **SIGKILL / OOM** (especially diffusion on CPU): reduce steps, reduce image size, or run on a GPU machine.
-- **Corrupted model cache** (Transformers/Diffusers): clear HuggingFace cache (`~/.cache/huggingface`).
-- **Slow runs**: prefer tiny models for validation; then enable full runs intentionally.
-- **Import errors**: run `tools_fix_concatenated_imports.py` to fix concatenated imports.
-- **JSON errors**: run `tools_fix_ipynb_json.py` to repair corrupted notebooks.
+- **Concepts Clés :**
+    - **Clustering Basé sur la Densité :** Compréhension des concepts de points centraux, de points frontières et de bruit (anomalies).
+    - **Détection d'Anomalies :** Identification des points de données qui n'appartiennent à aucun cluster (points de bruit).
+    - **Hyperparamètres de DBSCAN :** Exploration de l'impact des paramètres `eps` (distance maximale) et `min_samples` (nombre minimum de points).
+    - **Visualisation des Clusters et des Anomalies :** Visualisation des clusters de formes non sphériques et des points classés comme anomalies.

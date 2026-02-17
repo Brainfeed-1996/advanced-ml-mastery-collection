@@ -1,58 +1,41 @@
-# 04-Natural-Language-Processing
+# 04 - Traitement du Langage Naturel, Vision par Ordinateur et Apprentissage par Renforcement
 
-More advanced NLP/DL workflows (training loops, RL intro).
+Ce dossier couvre des workflows plus avancés en NLP et Deep Learning, y compris des boucles d'entraînement pour des réseaux de neurones, une introduction à l'apprentissage par renforcement (RL), et les bases du fine-tuning de modèles de type GPT.
 
-Last refresh: **2026-02-16 16:05:59**
+**Date de dernière mise à jour :** 2026-02-08 17:42:46
 
-## Prerequisites
+---
 
-- Python 3.10+ recommended
-- Create a venv (see `docs/INSTALLATION.md`)
-- Some notebooks require heavy dependencies (see `docs/OPTIONAL_HEAVY_DEPS.md`)
+## Présentation des Notebooks
 
-If a notebook downloads weights/models on first run, expect longer execution times.
+Ce dossier contient un mélange de sujets, allant du traitement d'images médicales à l'apprentissage par renforcement, en passant par le fine-tuning de modèles de langage.
 
-## Contents
+### 1. `CNN-Medical-Imaging.ipynb` - Classification d'Images Médicales avec CNN
 
-### Notebooks (.ipynb)
-- `CNN-Medical-Imaging.ipynb` — CNN training loop + evaluation + confusion matrix.
-- `GPT-Fine-Tuning-Basics.ipynb` — Fine-tuning mechanics via a tiny causal LM + sampling.
-- `RL-CartPole-Agent.ipynb` — Reinforcement learning agent training (gymnasium).
+Ce notebook utilise le jeu de données `digits` comme substitut pour démontrer une pipeline complète d'entraînement de réseau de neurones convolutifs (CNN) pour la classification d'images.
 
-### Python Tools (.py)
-- `advanced_transformer.py` — Automation tool for notebook management.
-- `CNN-Medical-Imaging.py` — Automation tool for notebook management.
-- `custom_tokenizer.py` — Automation tool for notebook management.
-- `GPT-Fine-Tuning-Basics.py` — Automation tool for notebook management.
-- `RL-CartPole-Agent.py` — Automation tool for notebook management.
+- **Concepts Clés :**
+    - **Chargement de Données et Prétraitement :** Utilisation de `TensorDataset` et `DataLoader` de PyTorch pour préparer les données pour l'entraînement.
+    - **Architecture du Modèle :** Définition d'un CNN simple avec des couches de convolution, d'activation (ReLU) et de pooling.
+    - **Boucle d'Entraînement :** Implémentation d'une boucle d'entraînement complète avec un optimiseur (Adam) et une fonction de perte (Cross-Entropy).
+    - **Évaluation du Modèle :** Calcul de l'accuracy et visualisation de la matrice de confusion pour évaluer la performance du modèle.
 
-## How to run
+### 2. `RL-CartPole-Agent.ipynb` - Apprentissage par Renforcement avec CartPole
 
-### Interactive (Jupyter)
-```bash
-jupyter notebook 04-Natural-Language-Processing/<notebook>.ipynb
-```
+Ce notebook entraîne un agent simple basé sur les gradients de politique sur l'environnement `CartPole-v1` à l'aide de la bibliothèque `gymnasium`. Il ne nécessite aucun téléchargement de données et est une excellente introduction aux concepts de base de l'apprentissage par renforcement.
 
-### Headless (embed outputs into the notebook file)
-```bash
-python -m jupyter nbconvert --to notebook --execute \
-  04-Natural-Language-Processing/<notebook>.ipynb --output <notebook>.ipynb --output-dir 04-Natural-Language-Processing
-```
+- **Concepts Clés :**
+    - **Environnement Gymnasium :** Interaction avec un environnement standard de RL pour simuler des épisodes.
+    - **Agent de Politique :** Définition d'un réseau de neurones simple pour approximer la politique de l'agent.
+    - **Algorithme REINFORCE :** Implémentation de l'algorithme de gradient de politique REINFORCE pour entraîner l'agent.
+    - **Calcul des Récompenses :** Utilisation de la méthode des retours escomptés pour évaluer les actions de l'agent.
 
-### Running Python tools
-```bash
-cd 04-Natural-Language-Processing
-python <tool>.py
-```
+### 3. `GPT-Fine-Tuning-Basics.ipynb` - Bases du Fine-Tuning de GPT
 
-## Expected outputs
-- Printed metrics (accuracy/ROC-AUC/MSE/etc.)
-- At least one plot or table for interpretation
-- For heavy notebooks: model download logs (first run) + sample inference outputs
+Ce notebook implémente un transformeur causal de petite taille, l'entraîne sur un petit corpus de texte, et génère du texte pour illustrer les principes de base du fine-tuning de modèles de type GPT.
 
-## Troubleshooting
-- **SIGKILL / OOM** (especially diffusion on CPU): reduce steps, reduce image size, or run on a GPU machine.
-- **Corrupted model cache** (Transformers/Diffusers): clear HuggingFace cache (`~/.cache/huggingface`).
-- **Slow runs**: prefer tiny models for validation; then enable full runs intentionally.
-- **Import errors**: run `tools_fix_concatenated_imports.py` to fix concatenated imports.
-- **JSON errors**: run `tools_fix_ipynb_json.py` to repair corrupted notebooks.
+- **Concepts Clés :**
+    - **Tokenisation de Texte :** Création d'un vocabulaire et d'un encodeur/décodeur simple pour le texte.
+    - **Architecture de Transformeur :** Implémentation d'un modèle de type GPT miniature avec des couches d'embedding, d'encodage de transformeur et une tête de langage.
+    - **Entraînement du Modèle :** Entraînement du modèle sur une tâche de modélisation de langage causal avec une fonction de perte de type cross-entropy.
+    - **Génération de Texte :** Échantillonnage de texte à partir du modèle entraîné pour démontrer ses capacités de génération.

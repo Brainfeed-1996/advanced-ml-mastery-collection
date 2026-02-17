@@ -1,56 +1,40 @@
-# 02-Classification-Challenges
+# 02 - Classification
 
-Challenge-style notebooks (harder variants, tuning, edge cases).
+Ce dossier se concentre sur les défis de la classification, une tâche d'apprentissage supervisé où l'objectif est de prédire une étiquette de classe discrète. Les notebooks de ce dossier explorent des techniques de classification avancées, telles que le gradient boosting et les machines à vecteurs de support (SVM), ainsi qu'une introduction au clustering avec l'algorithme K-Means pour la segmentation de la clientèle.
 
-Last refresh: **2026-02-16 16:05:59**
+**Date de dernière mise à jour :** 2026-02-08 17:42:46
 
-## Prerequisites
+---
 
-- Python 3.10+ recommended
-- Create a venv (see `docs/INSTALLATION.md`)
-- Some notebooks require heavy dependencies (see `docs/OPTIONAL_HEAVY_DEPS.md`)
+## Présentation des Notebooks
 
-If a notebook downloads weights/models on first run, expect longer execution times.
+### 1. `XGBoost-Customer-Churn.ipynb` - Prédiction de l'Attrition Client avec Gradient Boosting
 
-## Contents
+Ce notebook aborde un problème courant en entreprise : la prédiction de l'attrition client (churn). Il montre comment utiliser le gradient boosting pour construire un modèle de classification robuste, en tenant compte du déséquilibre des classes.
 
-### Notebooks (.ipynb)
-- `K-Means-Customer-Segmentation.ipynb` — K-means clustering for segmentation + silhouette-based K selection + profiling.
-- `SVM-Image-Recognition.ipynb` — Support Vector Machine classification with tuning + diagnostics.
-- `XGBoost-Customer-Churn.ipynb` — Gradient boosting for churn-style classification (XGBoost if available).
+- **Concepts Clés :**
+    - **Génération de Données Synthétiques :** Création d'un jeu de données tabulaires imitant les caractéristiques des clients et leur probabilité d'attrition.
+    - **Pipeline de Prétraitement Robuste :** Utilisation de `StandardScaler` pour les variables numériques et `OneHotEncoder` pour les variables catégorielles.
+    - **Modélisation avec Gradient Boosting :** Utilisation de `XGBoost` (si installé) ou de `HistGradientBoostingClassifier` de scikit-learn comme alternative.
+    - **Évaluation du Modèle pour Classes Déséquilibrées :** Utilisation de métriques appropriées telles que l'AUC-ROC et l'AUC-PR (Precision-Recall) pour évaluer le modèle en présence de classes déséquilibrées.
 
-### Python Tools (.py)
-- `K-Means-Customer-Segmentation.py` — Automation tool for notebook management.
-- `SVM-Image-Recognition.py` — Automation tool for notebook management.
-- `XGBoost-Customer-Churn.py` — Automation tool for notebook management.
+### 2. `SVM-Image-Recognition.ipynb` - Reconnaissance d'Images avec SVM
 
-## How to run
+Ce notebook utilise une machine à vecteurs de support (SVM) avec un noyau RBF pour une tâche de reconnaissance d'images sur le jeu de données `digits` de scikit-learn. Il illustre un workflow complet de classification d'images, y compris le prétraitement, l'optimisation des hyperparamètres et l'évaluation détaillée.
 
-### Interactive (Jupyter)
-```bash
-jupyter notebook 02-Classification-Challenges/<notebook>.ipynb
-```
+- **Concepts Clés :**
+    - **Jeu de Données `digits` :** Utilisation d'un jeu de données classique de scikit-learn pour la reconnaissance de chiffres manuscrits.
+    - **Pipeline de Prétraitement et Modélisation :** Combinaison de `StandardScaler` et `SVC` dans un pipeline pour simplifier le workflow.
+    - **Optimisation d'Hyperparamètres :** Utilisation de `GridSearchCV` pour trouver les meilleurs paramètres `C` et `gamma` pour le noyau RBF.
+    - **Évaluation Approfondie :** Analyse des performances à l'aide du rapport de classification et de la matrice de confusion pour comprendre les erreurs du modèle.
 
-### Headless (embed outputs into the notebook file)
-```bash
-python -m jupyter nbconvert --to notebook --execute \
-  02-Classification-Challenges/<notebook>.ipynb --output <notebook>.ipynb --output-dir 02-Classification-Challenges
-```
+### 3. `K-Means-Customer-Segmentation.ipynb` - Segmentation de la Clientèle avec K-Means
 
-### Running Python tools
-```bash
-cd 02-Classification-Challenges
-python <tool>.py
-```
+Bien que le K-Means soit un algorithme de clustering (apprentissage non supervisé), ce notebook est inclus ici car il est souvent utilisé comme une étape préliminaire à la classification. Il montre comment segmenter une clientèle en groupes homogènes en fonction de leur comportement.
 
-## Expected outputs
-- Printed metrics (accuracy/ROC-AUC/MSE/etc.)
-- At least one plot or table for interpretation
-- For heavy notebooks: model download logs (first run) + sample inference outputs
-
-## Troubleshooting
-- **SIGKILL / OOM** (especially diffusion on CPU): reduce steps, reduce image size, or run on a GPU machine.
-- **Corrupted model cache** (Transformers/Diffusers): clear HuggingFace cache (`~/.cache/huggingface`).
-- **Slow runs**: prefer tiny models for validation; then enable full runs intentionally.
-- **Import errors**: run `tools_fix_concatenated_imports.py` to fix concatenated imports.
-- **JSON errors**: run `tools_fix_ipynb_json.py` to repair corrupted notebooks.
+- **Concepts Clés :**
+    - **Génération de Données Synthétiques :** Création d'un jeu de données client avec des caractéristiques telles que l'âge, le revenu et le score de dépense.
+    - **Mise à l'Échelle des Données :** Utilisation de `StandardScaler` pour normaliser les données, une étape cruciale pour le K-Means.
+    - **Sélection du Nombre de Clusters (K) :** Utilisation du score de silhouette pour déterminer le nombre optimal de clusters.
+    - **Analyse des Clusters :** Profilage des segments de clientèle en analysant les caractéristiques moyennes de chaque groupe.
+    - **Visualisation avec PCA :** Utilisation de l'analyse en composantes principales (PCA) pour visualiser les clusters en 2D.

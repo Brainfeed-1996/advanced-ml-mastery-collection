@@ -1,56 +1,36 @@
-# 01-Regression-Analysis
+# 01 - Analyse de Régression
 
-Regression + deeper evaluation/diagnostics (industrial baselines).
+Ce dossier est une extension du dossier `01-Regression`, se concentrant sur des analyses plus approfondies et des diagnostics de modèles pour les problèmes de régression. Les notebooks ici reprennent les mêmes études de cas (immobilier, santé, finance) mais avec une approche plus orientée vers l'évaluation et l'interprétation des modèles.
 
-Last refresh: **2026-02-16 16:05:59**
+**Date de dernière mise à jour :** 2026-02-08 17:42:46
 
-## Prerequisites
+---
 
-- Python 3.10+ recommended
-- Create a venv (see `docs/INSTALLATION.md`)
-- Some notebooks require heavy dependencies (see `docs/OPTIONAL_HEAVY_DEPS.md`)
+## Présentation des Notebooks
 
-If a notebook downloads weights/models on first run, expect longer execution times.
+### 1. `Linear-Regression-Real-Estate.ipynb` - Analyse de Régression Linéaire (Immobilier)
 
-## Contents
+Ce notebook approfondit l'analyse du modèle de régression linéaire pour la prédiction des prix immobiliers. Il se concentre sur les diagnostics avancés pour valider la robustesse du modèle.
 
-### Notebooks (.ipynb)
-- `Linear-Regression-Real-Estate.ipynb` — Notebook project (see notebook for details).
-- `Logistic-Regression-Healthcare.ipynb` — Notebook project (see notebook for details).
-- `Random-Forest-Finance.ipynb` — Notebook project (see notebook for details).
+- **Concepts Clés :**
+    - **Diagnostics des Résidus :** Analyse approfondie de la distribution des erreurs, de l'hétéroscédasticité et des points influents.
+    - **Interprétation des Coefficients :** Discussion sur la signification des coefficients du modèle et leur impact sur la prédiction.
+    - **Validation Croisée :** Utilisation de la validation croisée pour une évaluation plus fiable de la performance du modèle.
 
-### Python Tools (.py)
-- `Linear-Regression-Real-Estate.py` — Automation tool for notebook management.
-- `Logistic-Regression-Healthcare.py` — Automation tool for notebook management.
-- `Random-Forest-Finance.py` — Automation tool for notebook management.
+### 2. `Logistic-Regression-Healthcare.ipynb` - Analyse de Régression Logistique (Santé)
 
-## How to run
+Ce notebook va au-delà de la simple classification binaire en explorant des techniques d'évaluation plus fines pour le modèle de risque médical.
 
-### Interactive (Jupyter)
-```bash
-jupyter notebook 01-Regression-Analysis/<notebook>.ipynb
-```
+- **Concepts Clés :**
+    - **Calibration du Modèle :** Évaluation de la fiabilité des probabilités prédites par le modèle.
+    - **Analyse de Sensibilité au Seuil :** Étude de l'impact du choix du seuil de classification sur les métriques de performance.
+    - **Coût des Erreurs :** Intégration des coûts métiers dans l'évaluation du modèle pour une prise de décision plus éclairée.
 
-### Headless (embed outputs into the notebook file)
-```bash
-python -m jupyter nbconvert --to notebook --execute \
-  01-Regression-Analysis/<notebook>.ipynb --output <notebook>.ipynb --output-dir 01-Regression-Analysis
-```
+### 3. `Random-Forest-Finance.ipynb` - Analyse de Forêt Aléatoire (Finance)
 
-### Running Python tools
-```bash
-cd 01-Regression-Analysis
-python <tool>.py
-```
+Ce notebook introduit un modèle non linéaire, la forêt aléatoire, pour un problème de régression en finance. L'accent est mis sur l'interprétabilité du modèle et la comparaison avec des modèles plus simples.
 
-## Expected outputs
-- Printed metrics (accuracy/ROC-AUC/MSE/etc.)
-- At least one plot or table for interpretation
-- For heavy notebooks: model download logs (first run) + sample inference outputs
-
-## Troubleshooting
-- **SIGKILL / OOM** (especially diffusion on CPU): reduce steps, reduce image size, or run on a GPU machine.
-- **Corrupted model cache** (Transformers/Diffusers): clear HuggingFace cache (`~/.cache/huggingface`).
-- **Slow runs**: prefer tiny models for validation; then enable full runs intentionally.
-- **Import errors**: run `tools_fix_concatenated_imports.py` to fix concatenated imports.
-- **JSON errors**: run `tools_fix_ipynb_json.py` to repair corrupted notebooks.
+- **Concepts Clés :**
+    - **Importance des Variables :** Utilisation de la forêt aléatoire pour estimer l'importance de chaque variable dans la prédiction.
+    - **Comparaison de Modèles :** Comparaison des performances de la forêt aléatoire avec un modèle de régression linéaire pour évaluer les gains de la non-linéarité.
+    - **Visualisation des Prédictions :** Création de graphiques pour visualiser les prédictions du modèle et comprendre son comportement.
